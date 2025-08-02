@@ -12,6 +12,10 @@ struct RecordHeader {
     #[br(map = |x: [u8; 4]| String::from_utf8_lossy(&x).into_owned())]
     name: String,
     size: u32,
+    #[allow(dead_code)]
+    unknown: u32, // Flags and other metadata
+    #[allow(dead_code)]
+    flags: u32,
 }
 
 #[derive(BinRead, Debug)]
